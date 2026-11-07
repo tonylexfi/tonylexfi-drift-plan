@@ -1,0 +1,28 @@
+_ > nanoagent.plugin.v0001.ManifestConfig:
+id: tonylexfi-drift-plan
+name: Schema Drift Planner
+version: 0.1.0
+status: ready
+spec: nanoagent.plugin/v0001
+runtime > nanoagent.plugin.v0001.RuntimeConfig:
+  type: mcp_stdio
+  command: [uv, run, --frozen, python, -m, plugin]
+permissions > nanoagent.plugin.v0001.PermissionsConfig:
+  network > nanoagent.plugin.v0001.NetworkConfig:
+    hosts: []
+  filesystem > nanoagent.plugin.v0001.FilesystemConfig:
+    write: [workspace]
+tools > dict[contract.Tool, nanoagent.plugin.v0001.ToolConfig]:
+  read_case:
+    description: Read the selected immutable synthetic case
+  write_result:
+    description: Write the complete proposed answer into result.json
+  reference:
+    description: Pin the hidden ground-truth snapshot before the agent starts
+tasks > dict[contract.Task, nanoagent.plugin.v0001.TaskConfig]:
+  tonylexfi-drift-plan:
+    description: "Produce a safe field-by-field migration plan from a baseline schema and a batch profile."
+    runner: agent
+    tools: [read_case, write_result]
+    reference: reference
+    instructions: "Call read_case with the task case. Return one row per union of baseline/observed fields, sorted by name. Missing old field: required => quarantine/required_absent; nullable => retain/optional_absent. New field: no observed types => quarantine/unknown_new_type; otherwise a single type or integer+number => add_nullable/new_field; other mixtures => quarantine/type_conflict. Existing present field: nulls in nonnullable => quarantine/null_violation first. Then a subset of its baseline type is compatible (number also allows integer; an empty type set is compatible); retain/compatible. An integer baseline with observed types within integer+number and containing number => widen_number/numeric_widening. Everything else => quarantine/type_conflict. Boolean is never integer. Call write_result with the complete answer. Then submit its returned path and count. Do not claim a live connection: all data is explicitly synthetic."

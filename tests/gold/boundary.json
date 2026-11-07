@@ -1,0 +1,14 @@
+{
+  "rows": [
+    {
+      "field": "measure",
+      "action": "retain",
+      "reason": "compatible"
+    },
+    {
+      "field": "new_null",
+      "action": "quarantine",
+      "reason": "unknown_new_type"
+    }
+  ]
+}

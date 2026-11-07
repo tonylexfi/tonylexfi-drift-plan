@@ -1,0 +1,24 @@
+{
+  "case": "boundary",
+  "baseline": [
+    {
+      "name": "measure",
+      "type": "number",
+      "nullable": true
+    }
+  ],
+  "observed": [
+    {
+      "name": "measure",
+      "types": [
+        "integer"
+      ],
+      "null_count": 0
+    },
+    {
+      "name": "new_null",
+      "types": [],
+      "null_count": 2
+    }
+  ]
+}

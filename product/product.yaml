@@ -1,0 +1,11 @@
+_ > nanoagent.plugin.v0001.ProductConfig:
+tagline: "Produce a safe field-by-field migration plan from a baseline schema and a batch profile."
+summary: "Produce a safe field-by-field migration plan from a baseline schema and a batch profile. Uses bundled synthetic cases and a deterministic verifier, without live network access."
+highlights:
+  - "Exact rules and a hidden immutable reference"
+  - "Standard and boundary cases included"
+  - "A saved JSON result with a reproducible verdict"
+steps:
+  - "Choose standard or boundary"
+  - "Read the case and prepare the complete answer"
+  - "Write the result and submit its path and row count"

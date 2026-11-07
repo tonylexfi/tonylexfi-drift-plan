@@ -1,0 +1,74 @@
+{
+  "case": "standard",
+  "baseline": [
+    {
+      "name": "id",
+      "type": "integer",
+      "nullable": false
+    },
+    {
+      "name": "load",
+      "type": "integer",
+      "nullable": true
+    },
+    {
+      "name": "region",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "active",
+      "type": "boolean",
+      "nullable": false
+    },
+    {
+      "name": "legacy",
+      "type": "string",
+      "nullable": true
+    },
+    {
+      "name": "required_code",
+      "type": "string",
+      "nullable": false
+    }
+  ],
+  "observed": [
+    {
+      "name": "id",
+      "types": [
+        "integer"
+      ],
+      "null_count": 0
+    },
+    {
+      "name": "load",
+      "types": [
+        "integer",
+        "number"
+      ],
+      "null_count": 1
+    },
+    {
+      "name": "region",
+      "types": [
+        "integer",
+        "string"
+      ],
+      "null_count": 0
+    },
+    {
+      "name": "active",
+      "types": [
+        "boolean"
+      ],
+      "null_count": 1
+    },
+    {
+      "name": "new_metric",
+      "types": [
+        "number"
+      ],
+      "null_count": 0
+    }
+  ]
+}

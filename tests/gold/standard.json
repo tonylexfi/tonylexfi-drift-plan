@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "field": "active",
+      "action": "quarantine",
+      "reason": "null_violation"
+    },
+    {
+      "field": "id",
+      "action": "retain",
+      "reason": "compatible"
+    },
+    {
+      "field": "legacy",
+      "action": "retain",
+      "reason": "optional_absent"
+    },
+    {
+      "field": "load",
+      "action": "widen_number",
+      "reason": "numeric_widening"
+    },
+    {
+      "field": "new_metric",
+      "action": "add_nullable",
+      "reason": "new_field"
+    },
+    {
+      "field": "region",
+      "action": "quarantine",
+      "reason": "type_conflict"
+    },
+    {
+      "field": "required_code",
+      "action": "quarantine",
+      "reason": "required_absent"
+    }
+  ]
+}
